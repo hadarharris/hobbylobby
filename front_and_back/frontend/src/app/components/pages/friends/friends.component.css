@@ -1,0 +1,147 @@
+.user-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ff1493; /* Deep pink */
+}
+h2 {
+  text-align: center; /* Center align the heading text */
+  margin-bottom: 20px; /* Add spacing below the heading */
+}
+*{
+  font-family: Verdana;
+}
+.description{
+  text-align: center;
+  color:#e66f77;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Style the images */
+.user-box img {
+  width: 100%; /* Make the image span the full width */
+  height: auto; /* Maintain the aspect ratio */
+  border-radius: 10%; /* Keep the circular border */
+  margin-bottom: 20px; /* Adjust spacing between the image and user info */
+}
+
+
+.feed-container {
+  margin: 20px;
+}
+
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create a 3-column grid */
+  gap: 20px; /* Adjust the gap between items */
+}
+
+.feed-item {
+  background-color: mistyrose; /* Set the background color for each item */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-remove-friend,
+.btn-add-friend {
+  background-color: palevioletred; /* Set button background color */
+  color: #fff; /* Set button text color */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-remove-friend:hover,
+.btn-add-friend:hover {
+  background-color: #ff80ab; /* Change button color on hover */
+}
+
+/*loading beings*/
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Display loader and text in a column layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 40vh; /* Set the container height as needed */
+  background: #fff; /* Match the background color of the register-block */
+  margin-top: 0; /* Adjust the top margin */
+  margin-bottom: 0; /* Adjust the bottom margin */
+}
+
+.loader {
+  border: 16px solid #ff656c; /* Match the border color of the register-block button */
+  border-top: 16px solid #ff7b81; /* Match the button hover background color */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.loading-text {
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  margin-top: 10px; /* Adjust the spacing between loader and text */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/*loading ends*/
+
+/*friendLoading beings*/
+.friendLoading-container {
+  margin-top: 0; /* Adjust the top margin */
+  margin-bottom: 0; /* Adjust the bottom margin */
+}
+
+.friendLoader {
+  border: 10px solid #ff656c; 
+  border-top: 10px solid #ffc5c8;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+/*friendLoading ends*/
+
+.cta-buttons {
+  text-align: center;
+  margin-top: 20px; /* Adjust the spacing between text and buttons */
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  text-decoration: none;
+  background-color: #ff80ab;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 0 10px; /* Adjust the spacing between buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add a smooth hover effect */
+}
+
+.cta-button:hover {
+  background-color:  palevioletred; /* Change button color on hover */
+}

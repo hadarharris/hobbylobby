@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<div class="register-block" *ngIf="showForm">
+  <h1>Register</h1>
+  <form method="post">
+    <label>Email
+      <input type="email" name="user_mail" required [(ngModel)]="user_mail" minlength="6" maxlength="50">
+    </label><br><br>
+    <label>Password
+      <input type="password" name="password" required [(ngModel)]="pwd" minlength="8" maxlength="14">
+    </label><br><br>
+    <label>Name  
+      <input type="text" name="firstname" required [(ngModel)]="firstname" minlength="2" maxlength="20">
+    </label><br><br>
+    <label>Surname 
+      <input type="text" name="surname" required [(ngModel)]="surname" minlength="2" maxlength="30">
+    </label><br><br>
+    <label>Gender 
+      <select name="gender" required [(ngModel)]="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+    </label><br><br>
+    <label>Date of birth 
+      <input type="date" name="dob" required [(ngModel)]="dob">
+    </label><br><br>
+    <label>City
+      <select name="city" [(ngModel)]="city">
+        <option *ngFor="let cur_city of cities" [value]="cur_city">{{ cur_city }}</option>
+    </select>
+    </label><br><br>
+    <label>Tell us what you like to do<br>
+      <textarea name="hobbies" required [(ngModel)]="hobbies" rows="4" cols="50" minlength="10" maxlength="200"></textarea>
+    </label>
+  </form>
+  <div *ngIf="loading" class="loading-container">
+    <div class="loader"></div>
+    <p class="loading-text">Adding You to Our Community<br>Thank You for Your Patience</p>
+  </div>
+  <p style="text-align: center;">{{ resp }}</p>
+  <button *ngIf="!loading" (click)="addUser()">add user</button>
+</div>
+<div *ngIf="showSuccess" class="showSuccess">
+  <p style="text-align: center;">{{ resp }}</p>
+  <button routerLink="/login">Start your journey</button>
+</div>

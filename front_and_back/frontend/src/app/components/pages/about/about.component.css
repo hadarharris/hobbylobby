@@ -1,0 +1,49 @@
+.about-container {
+  padding: 20px;
+}
+
+.about-header {
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 350px; /* Adjust the max-width to your preference */
+  height: auto;
+  border-radius: 50%; /* Add rounded edges */
+  display: block; /* Center the image */
+  margin: 0 auto;
+  padding-bottom:20px;
+}
+
+.about-description p {
+  text-align: center;
+  color: #333;
+  max-width: 800px; /* Limit the width of the text content */
+  margin: 0 auto; /* Center-align the text */
+}
+
+.team-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.team-section h2 {
+  font-size: 24px;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.team-member {
+  margin: 10px;
+}
+
+.team-member img {
+  max-width: 150px;
+  height: auto;
+  border-radius: 50%;
+}

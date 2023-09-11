@@ -1,0 +1,40 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">HobbyLobby</a>
+    <nav>
+      <ul>
+        <a routerLink="/about">About</a>
+
+        <!-- Show these menu items when the user is not authenticated -->
+        <li *ngIf="!isAuth()">
+          <a routerLink="/add">Register</a>
+        </li>
+        <li *ngIf="!isAuth()">
+          <a routerLink="/login">Login</a>
+        </li>
+
+        <!-- Show this menu item when the user is authenticated -->
+        <li *ngIf="isAuth()" class="menu-container">
+          <a routerLink="/profile" >{{ staticName }}</a>
+          <div class="menu">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="/friends">Friends</a>
+            <a (click)="logout()">Logout</a>
+          </div>
+        </li>
+
+        <li *ngIf="isAuth()">
+          <a routerLink="/matches">
+            Matches
+          </a>
+        </li>
+
+        <li *ngIf="isAuth()">
+          <a routerLink="/search">
+            Search
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

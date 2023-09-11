@@ -1,0 +1,48 @@
+<section class="hero">
+  <div class="hero-content">
+    <img src="assets/images/logocircle.png" alt="Hobby Lobby Logo">
+    <h1>Welcome to Hobby Lobby!</h1>
+    <p>Connecting with like-minded people and making new friends has never been easier! 🌟</p>
+  </div>
+</section>
+
+
+<div class="features-wrapper">
+  <section class="features">
+    <div class="feature">
+      <div class="feature-content">
+        <h2>Discover Hobbies</h2>
+        <p>Explore a wide range of hobbies and interests.</p>
+        <p>At Hobby Lobby, we're all about bringing people together through their shared interests and hobbies. 🎉</p>
+      </div>
+      <img src="assets/images/friends6.png" alt="Discover Hobbies">
+    </div>
+    <div class="feature">
+      <img src="assets/images/friends2.png" alt="Connect with Friends">
+      <div class="feature-content">
+        <h2>Connect with Friends</h2>
+        <p>Find friends who share your passions and hobbies.</p>
+        <p>Join us on this unique journey where our dedicated algorithm is here to help you form meaningful connections with others who share your hobbies. 🤝✨</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-content">
+        <h2>Personalized Recommendations</h2>
+        <p>Our algorithm recommends users based on your interests.</p>
+        <p>Plus, we offer automatic group suggestions and personalized recommendations, opening up a world of exciting options tailored just for you. 🌎</p>
+      </div>
+      <img src="assets/images/friends5.png" alt="Personalized Recommendations">
+    </div>
+  </section>
+</div>
+
+<section class="cta-buttons">
+  <!-- Conditionally display buttons based on local storage -->
+  <ng-container *ngIf="isUserLoggedIn(); else showLoginButtons">
+    <a routerLink="/matches" class="cta-button">Make friends now!</a>
+  </ng-container>
+  <ng-template #showLoginButtons>
+    <a routerLink="/login" class="cta-button">Login</a>
+    <a routerLink="/add" class="cta-button">Register</a>
+  </ng-template>
+</section>

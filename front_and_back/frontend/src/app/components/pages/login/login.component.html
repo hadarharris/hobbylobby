@@ -1,0 +1,33 @@
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<div class="container" class="login-block">
+  <h1>Login</h1>
+  <div class="details">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+      <div class="input-container">
+          <label>Email</label>
+        <div>
+          <input type="email" placeholder="Email" formControlName="email" [(ngModel)]="email">
+        </div>
+        <div class="error-list" *ngIf="form_controls['email'].errors && isSubmitted">
+          <div *ngIf="form_controls['email'].errors['required']">Should not be empty</div>
+          <div *ngIf="form_controls['email'].errors['email']">Email is incorrect</div>
+        </div>
+        <label>Password</label>
+        <div>
+          <input type="password" placeholder="Password" formControlName="password" [(ngModel)]="pwd">
+        </div>
+        <div class="error-list" *ngIf="form_controls['password'].errors && isSubmitted">
+          <div *ngIf="form_controls['password'].errors['required']">Should not be empty</div>
+        </div>
+      </div>
+      <div *ngIf="loading" class="loading-container">
+        <div class="loader"></div>
+      </div>
+      <p>{{this.resp}}</p>
+      <div class="button">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

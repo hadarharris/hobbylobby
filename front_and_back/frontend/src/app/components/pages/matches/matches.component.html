@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<div class="feed-container">
+  <h2>Your Matches</h2>
+  <p class="description">👫🤝🎨📚Here you will discover people with similar hobbies and interests as yours👯🚀😊🎮</p>
+  <div class="filterByDistance">
+    <p>Filter matches by distance from your city</p>
+    <label>Enter maximum distance (km)
+      <input type="number" id="distanceInput" name="distanceInput" min="5" step="5" [(ngModel)]="maxDistance">
+    </label>
+    <button (click)="filterMatchesByDistance()">Filter Matches</button>
+    <button (click)="removeFilters()">Remove Filters</button>
+  </div>
+  <div *ngIf="loading" class="loading-container">
+    <div class="loader"></div>
+  </div>
+  <div class="feed-grid">
+    <div *ngFor="let clusterUser of filteredUsers" class="feed-item">
+      <div class="user-box">
+        <img [src]="'assets/images/' + getHobbyImage(clusterUser.hobby)" alt="Hobby Image">
+        <div class="user-info">
+          <p><strong>{{ clusterUser.name }} {{ clusterUser.surname }}</strong> </p>
+          <p><strong>From {{ clusterUser.city }}</strong> </p>
+          <p><strong>Interests:</strong> {{ clusterUser.hobby }}</p>
+        </div>
+        <div class="user-actions">
+          <button class="btn-add-friend" *ngIf="!clusterUser.isFriend" (click)="addFriend(clusterUser.usernum)"><i class="fas fa-user-plus"></i> Add Friend</button>
+          <button class="btn-remove-friend" *ngIf="clusterUser.isFriend" (click)="removeFriend(clusterUser.usernum)"><i class="fas fa-user-minus"></i> Remove Friend</button>
+          <div *ngIf="clusterUser.isLoading" class="userLoading-container">
+            <div class="userLoader"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="showNoMatchesMsg">
+  <p style="text-align: center;"><strong>No Matches Were Found</strong></p>
+</div>

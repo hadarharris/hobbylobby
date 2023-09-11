@@ -1,0 +1,280 @@
+.user-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ff1493; /* Deep pink */
+}
+h2 {
+  text-align: center; /* Center align the heading text */
+  margin-bottom: 20px; /* Add spacing below the heading */
+}
+*{
+  font-family: Verdana;
+}
+.description{
+  text-align: center;
+  color:#e66f77;
+  font-size: 20px;
+  font-weight: bold;
+}
+/* Style the images */
+.user-box img {
+  width: 100%; /* Make the image span the full width */
+  height: auto; /* Maintain the aspect ratio */
+  border-radius: 10%; /* Keep the circular border */
+  margin-bottom: 20px; /* Adjust spacing between the image and user info */
+}
+
+
+.feed-container {
+  margin: 20px;
+}
+
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create a 3-column grid */
+  gap: 20px; /* Adjust the gap between items */
+}
+
+.feed-item {
+  background-color: mistyrose; /* Set the background color for each item */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-remove-friend,
+.btn-add-friend {
+  background-color: palevioletred; /* Set button background color */
+  color: #fff; /* Set button text color */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-remove-friend:hover,
+.btn-add-friend:hover {
+  background-color: #ff80ab; /* Change button color on hover */
+}
+
+/*loading beings*/
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Display loader and text in a column layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 40vh; /* Set the container height as needed */
+  background: #fff; /* Match the background color of the register-block */
+  margin-top: 0; /* Adjust the top margin */
+  margin-bottom: 0; /* Adjust the bottom margin */
+}
+
+.loader {
+  border: 16px solid #ff656c; /* Match the border color of the register-block button */
+  border-top: 16px solid #ff7b81; /* Match the button hover background color */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.loading-text {
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  margin-top: 10px; /* Adjust the spacing between loader and text */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  /*loading ends*/
+
+form {
+  position: relative;
+  text-align: center; /* Center the form elements */
+  margin: 20px auto; /* Center horizontally */
+  transition: all 1s;
+  width: 200px; /* Increase the form width for better visibility */
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+}
+
+input {
+  background-color: #ffd6e5;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  font-size: 1em;
+  border-radius: 20px;
+  padding: 0 20px;
+}
+
+.fa {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 42.5px;
+  height: 42.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+}
+
+form:hover,
+form:valid {
+  width: 300px; /* Increase the form width on hover or when valid */
+  cursor: pointer;
+}
+
+form:hover input,
+form:valid input {
+  display: block;
+}
+
+form:hover .fa,
+form:valid .fa {
+  background: #07051a;
+  color: white;
+}
+
+a {
+  display: none;
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+form:valid a {
+  display: block;
+}
+
+.error-message {
+  text-align: center;
+  font-size: 18px;
+  color: #ff1493; /* You can customize the color */
+  margin-top: 10px; /* Adjust the margin as needed */
+  font-weight: bold;
+}
+
+/* Style the radio buttons container */
+.radio-buttons {
+  display: flex; /* Display radio buttons in a row */
+  align-items: center; /* Vertically center items */
+  margin-top: 10px; /* Add margin to separate from the search input */
+}
+
+/* Hide the default radio buttons */
+.radio-buttons input[type="radio"] {
+  display: none;
+}
+
+/* Style the custom radio buttons */
+.radio-custom {
+  display: inline-block;
+  width: 20px; /* Set the width of the circular button */
+  height: 20px; /* Set the height of the circular button */
+  border: 2px solid #ff1493; /* Set the border color */
+  border-radius: 50%; /* Make it a circle */
+  position: relative;
+  margin-right: 10px; /* Add spacing between radio buttons and labels */
+}
+
+/* Style the dot inside the radio button when checked */
+.radio-buttons input[type="radio"]:checked + .radio-custom::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Position the dot vertically in the center */
+  left: 50%; /* Position the dot horizontally in the center */
+  transform: translate(-50%, -50%);
+  width: 8px; /* Set the width of the dot */
+  height: 8px; /* Set the height of the dot */
+  background-color: #ff1493; /* Set the dot color when checked */
+  border-radius: 50%; /* Make the dot a circle */
+}
+
+/* Style the radio button labels */
+.radio-buttons label {
+  white-space: nowrap;
+  font-size: 16px; /* Adjust the font size */
+  color: #ff1493; /* Set the label color */
+  cursor: pointer; /* Add pointer cursor for label clicks */
+  margin-right: 20px; /* Add space between radio buttons */
+}
+
+.search-instructions {
+  white-space: nowrap; /* Prevent text from wrapping onto multiple lines */
+  text-align: center;
+  margin: 0; /* Reset margin for the <p> element */
+  font-size: 16px; /* Adjust the font size */
+  color: #ff1493; /* Set the text color to pink */
+  padding-right: 10px; /* Add spacing on the right side */
+}
+
+.search-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style the radio options container */
+.radio-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+
+/*friendLoading beings*/
+.friendLoading-container {
+  margin-top: 0; /* Adjust the top margin */
+  margin-bottom: 0; /* Adjust the bottom margin */
+}
+
+.friendLoader {
+  border: 10px solid #ff656c; 
+  border-top: 10px solid #ffc5c8;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+/*friendLoading ends*/
+
+

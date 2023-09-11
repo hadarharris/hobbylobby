@@ -1,0 +1,238 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana;
+}
+
+/* Global styles */
+body {
+  background-color: #fff;
+}
+
+/* Profile page styles */
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.profile-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 80%;
+  max-width: 600px;
+}
+
+/* Profile header styles */
+.profile-header {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 100px; 
+  height: 100px; /* Ensure it's a square to make a perfect circle */
+  border-radius: 50%; /* Make the picture a circle */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  margin-right: 20px; /* Add spacing between the picture and the heading */
+}
+
+
+
+h1 {
+  color: palevioletred;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Profile info styles */
+.profile-info {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  display: flex; /* Add flex container */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+}
+/* Profile text styles */
+.profile-text {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; 
+}
+
+.profile-detail {
+  display: flex;
+  align-items: center;
+}
+
+.profile-detail i {
+  font-size: 20px; 
+  margin-right: 10px;
+  color: palevioletred; 
+}
+
+
+.profile-detail img {
+  max-width: 30px;
+  margin-right: 10px;
+}
+
+.profile-icon {
+  margin-right: 20px;
+}
+
+.profile-icon img {
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+/* Style the edit block */
+.edit-block {
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style buttons */
+button {
+  background-color: palevioletred;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+
+/* Style the response message */
+.response-message {
+  text-align: center;
+  color: rgb(226, 32, 97); /* You can change the text color */
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Style the form inputs and select */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Style the form text area */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+/* Style the form buttons */
+form button {
+  background-color: palevioletred; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Style the form buttons for cancel */
+form button.cancel {
+  background-color: #ccc;
+  color: white;
+}
+
+/* Style the form buttons for cancel */
+form button.cancel:hover {
+  background-color: #999;
+}
+
+/* Style the form buttons for update */
+form button.update {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Style the form buttons for update */
+form button.update:hover {
+  background-color: #45a049;
+}
+
+
+/*loading beings*/
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Display loader and text in a column layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 20vh; /* Set the container height as needed */
+  background: #fff; /* Match the background color of the register-block */
+  margin-top: 0; /* Adjust the top margin */
+  margin-bottom: 0; /* Adjust the bottom margin */
+}
+
+.loader {
+  border: 16px solid #ff656c; /* Match the border color of the register-block button */
+  border-top: 16px solid #ff7b81; /* Match the button hover background color */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.loading-text {
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  margin-top: 10px; /* Adjust the spacing between loader and text */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*loading ends*/
+
+
+
+
+
+
+
+

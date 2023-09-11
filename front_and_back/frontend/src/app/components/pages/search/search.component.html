@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<h2>Search new friends</h2>
+<p class="description">🔎Search new friends and discover new hobbies and interests</p>
+<form class="search-form">
+    <input name='query' type="search" [(ngModel)]='query' required minlength="3" maxlength="80">
+    <button class="fa fa-search" (click)="search()"></button>
+  <p class="search-instructions">modify your search to include <br> all words or at least one of them:</p>
+  <div class="radio-buttons">
+    <label for="exact">
+      <input type="radio" id="exact" name="searchMethod" [(ngModel)]="searchMethod" value="exact">
+      <span class="radio-custom"></span>
+      all words
+    </label>
+    <label for="or">
+      <input type="radio" id="or" name="searchMethod" [(ngModel)]="searchMethod" value="or">
+      <span class="radio-custom"></span>
+      at least one word
+    </label>
+  </div>
+</form>
+<p class="error-message">{{errorMessage}}</p>
+
+
+<div *ngIf="loading" class="loading-container">
+  <div class="loader"></div>
+</div>
+
+<div class="feed-container">
+  <div class="feed-grid">
+    <div *ngFor="let user of curUsers" class="feed-item">
+      <div class="user-box">
+        <img [src]="'assets/images/' + getHobbyImage(user.hobby)" alt="Hobby Image">
+        <div class="user-info">
+          <p><strong>{{ user.name }} {{ user.surname }}</strong> </p>
+          <p><strong>From {{ user.city }}</strong> </p>
+          <p><strong>Interests:</strong> {{ user.hobby }}</p>
+        </div>
+          <div class="user-actions">
+            <button class="btn-add-friend" *ngIf="!user.isFriend" (click)="addFriend(user.usernum)"><i class="fas fa-user-plus"></i> Add Friend</button>
+            <button class="btn-remove-friend" *ngIf="user.isFriend" (click)="removeFriend(user.usernum)"><i class="fas fa-user-minus"></i> Remove Friend</button>
+            <div *ngIf="user.isLoading" class="friendLoading-container">
+              <div class="friendLoader"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>

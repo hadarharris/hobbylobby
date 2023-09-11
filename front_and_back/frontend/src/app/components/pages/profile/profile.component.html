@@ -1,0 +1,96 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+/>
+<div class="profile-page">
+  <div class="profile-container">
+    <div class="profile-header">
+      <img [src]="userProfilePicture" alt="Profile Picture" class="profile-picture" />
+      <h1>{{ user.name }} {{ user.surname }}</h1>
+    </div>
+    <div class="profile-info" *ngIf="isDetailsVisible">
+      <div class="profile-details">
+        <div class="profile-text">
+          <div class="profile-detail">
+            <i class="fas fa-user"></i>
+            <p><strong>Name:</strong> {{ user.name }} {{ user.surname }}</p>
+          </div>
+          <div class="profile-detail">
+            <i class="fas fa-venus-mars"></i>
+            <p><strong>Gender:</strong> {{ user.gender }}</p>
+          </div>
+          <div class="profile-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <p><strong>City:</strong> {{ user.city }}</p>
+          </div>
+          <div class="profile-detail">
+            <i class="fas fa-calendar-alt"></i>
+            <p><strong>Date of Birth:</strong> {{ user.date_of_birth }}</p>
+          </div>
+          <div class="profile-detail">
+            <i class="fas fa-envelope"></i>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+          </div>
+          <div class="profile-detail">
+            <i class="fas fa-heart"></i>
+            <p><strong>Hobbies:</strong> {{ user.hobby }}</p>
+          </div>          
+        </div>
+      </div>
+    </div>
+    <div class="edit-block">
+    <button *ngIf="!isPasswordEmailFormVisible && !isOtherDetailsFormVisible" (click)="showPasswordEmailForm()">Edit Credentials</button>
+    <button *ngIf="!isPasswordEmailFormVisible && !isOtherDetailsFormVisible" (click)="showOtherDetailsForm()">Edit Details</button>
+      <form *ngIf="isPasswordEmailFormVisible" method="post">
+        <label>Email
+          <input type="email" name="email" required [(ngModel)]="user.email" minlength="6" maxlength="50" [disabled]="success">
+        </label>
+        <label>Password
+          <input type="password" name="pwd" required [(ngModel)]="user.pwd" minlength="8" maxlength="14" [disabled]="success">
+        </label>
+        <div class="loading-container" *ngIf="loading">
+          <div class="loader"></div>
+        </div>
+        <p *ngIf="!loading" class="response-message">{{ resp }}</p>
+        <div *ngIf="!loading">
+          <button *ngIf="!success" (click)="updatePasswordEmail()">Update Credentials</button>
+          <button (click)="hideForms()">Go back</button>
+        </div>
+      </form>
+    <form *ngIf="isOtherDetailsFormVisible" method="post">
+      <label>Name  
+        <input type="text" name="name" required [(ngModel)]="user.name" minlength="2" maxlength="20" [disabled]="success">
+      </label>
+      <label>Surname 
+        <input type="text" name="surname" required [(ngModel)]="user.surname" minlength="2" maxlength="30" [disabled]="success">
+      </label>
+      <label>Gender 
+        <select name="gender" required [(ngModel)]="user.gender" [disabled]="success">
+          <option value="M">Male</option>
+          <option value="F">Female</option>
+        </select>
+      </label>
+      <label>Date of birth 
+        <input type="date" name="date_of_birth" disabled [(ngModel)]="formattedDateOfBirth" [disabled]="success">
+      </label>
+      <label>City
+        <select name="city" [(ngModel)]="user.city" [disabled]="success">
+          <option *ngFor="let cur_city of cities" [value]="cur_city">{{ cur_city }}</option>
+        </select>
+      </label>
+      <label>Hobbies<br>
+        <textarea name="hobby" required [(ngModel)]="user.hobby" rows="4" cols="50" minlength="10" maxlength="200" [disabled]="success"> </textarea>
+      </label>
+      <div class="loading-container" *ngIf="loading">
+        <div class="loader"></div>
+      </div>
+      <p *ngIf="!loading" class="response-message">{{ resp }}</p>
+      <div *ngIf="!loading">
+        <button *ngIf="!success" (click)="updateOtherDetails()">Update Details</button>
+        <button (click)="hideForms()">Go back</button>
+      </div>
+    </form>
+  </div>
+  </div>
+  </div>
+

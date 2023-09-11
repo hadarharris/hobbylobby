@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<div class="feed-container">
+  <h2>Your Saved Friends</h2>
+  <p class="description">🌟🎉✨🤝🌎Here you will find all the people you added as your friends. Feel free to reach out🌎🤝✨🎉🌟</p>
+  <div *ngIf="loading" class="loading-container">
+    <div class="loader"></div>
+  </div>
+  <div class="feed-grid">
+    <div *ngFor="let friend of friendsUsers" class="feed-item">
+      <div class="user-box">
+        <img [src]="'assets/images/' + getHobbyImage(friend.hobby)" alt="Hobby Image">
+        <div class="user-info">
+          <p><strong>{{ friend.name }} {{ friend.surname }}</strong> </p>
+          <p><strong>From {{ friend.city }}</strong> </p>
+          <p><strong>Interests:</strong> {{ friend.hobby }}</p>
+          <p>Reach out via email:<br><strong>Email Address:</strong> {{ friend.email }}</p>
+        </div>
+        <div class="user-actions">
+          <button class="btn-remove-friend" (click)="removeFriend(friend.usernum)"><i class="fas fa-user-minus"></i> Remove Friend </button>
+          <div *ngIf="friend.isLoading" class="friendLoading-container">
+            <div class="friendLoader"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cta-buttons" *ngIf="showNoFriendsMsg">
+  <!-- to display when user has no friends -->
+  <p>You didn't save any friends yet.<br>Start exploring today and add new friends</p>
+  <a routerLink="/matches" class="cta-button">Your Matches</a>
+  <a routerLink="/search" class="cta-button">Search new friends</a>
+</div>
